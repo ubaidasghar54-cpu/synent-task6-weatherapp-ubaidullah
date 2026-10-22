@@ -63,7 +63,8 @@ web server. There is no build step.
 
 ## Screenshots
 
-_Add a screenshot of the app here._
+<img width="1578" height="775" alt="image" src="https://github.com/user-attachments/assets/83e0b81f-6d08-464c-9bcd-c31e8d16a3a6" />
+
 
 ## Live demo
 
