@@ -68,4 +68,4 @@ web server. There is no build step.
 
 ## Live demo
 
-_Add the deployed app URL here._
+https://synent-task6-weatherapp-ubaidullah.vercel.app/
