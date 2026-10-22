@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Look up local weather, browse a five-day forecast, and keep your favorite cities close."
+    >
+    <meta name="theme-color" content="#f4f7fa">
+    <title>Weather | Your local forecast</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <p class="app-eyebrow">A clearer view of the day ahead</p>
+      <h1>Weather, wherever you are.</h1>
+      <p>Current conditions and a five-day outlook, city by city.</p>
+    </header>
+
+    <main class="app-main">
+      <section class="search-card" aria-labelledby="search-heading">
+        <h2 id="search-heading">Look up a place</h2>
+        <form id="search-form">
+          <label for="city-input">City name</label>
+          <div class="search-controls">
+            <input
+              id="city-input"
+              name="city"
+              type="search"
+              placeholder="e.g. Murree, Keswick, or Helsinki"
+              autocomplete="address-level2"
+              aria-describedby="search-help"
+              aria-controls="city-suggestions"
+              aria-expanded="false"
+            >
+            <button id="search-button" type="submit">Check weather</button>
+            <button id="location-button" class="location-button" type="button">
+              Use my location
+            </button>
+          </div>
+          <div
+            id="city-suggestions"
+            class="city-suggestions"
+            role="group"
+            aria-label="City suggestions"
+            hidden
+          ></div>
+          <p id="search-help" class="search-help">
+            Start typing to see matching places. For towns with similar names,
+            check the region and country before choosing.
+          </p>
+          <p class="location-help">
+            Your device will ask before sharing your location. If you allow it,
+            coordinates go to Open-Meteo for weather and BigDataCloud for a city name.
+          </p>
+        </form>
+      </section>
+
+      <p
+        id="status-message"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      ></p>
+
+      <section
+        id="location-choices"
+        class="location-choices"
+        aria-labelledby="location-choices-heading"
+        hidden
+      >
+        <h2 id="location-choices-heading">Choose the right place</h2>
+        <div id="location-choice-list" class="location-choice-list"></div>
+      </section>
+
+      <section class="watchlist-section" aria-labelledby="watchlist-heading">
+        <div class="watchlist-heading">
+          <div>
+            <p class="section-eyebrow">YOUR PLACES</p>
+            <h2 id="watchlist-heading">Saved cities</h2>
+            <p>Quick updates for the places you care about.</p>
+          </div>
+        </div>
+        <p id="watchlist-empty" class="watchlist-empty">
+          Search for a city and save it here for quick access.
+        </p>
+        <div id="watchlist-grid" class="watchlist-grid"></div>
+      </section>
+
+      <section
+        id="weather-results"
+        class="weather-results"
+        aria-label="Weather results"
+        aria-live="polite"
+        aria-atomic="true"
+        aria-busy="false"
+        hidden
+      >
+        <section class="current-weather-card" aria-labelledby="location-name">
+          <div class="current-weather-heading">
+            <div>
+              <p class="section-eyebrow">CURRENT CONDITIONS</p>
+              <h2 id="location-name"></h2>
+              <p id="current-condition"></p>
+            </div>
+            <p id="current-icon" class="weather-icon" aria-hidden="true"></p>
+          </div>
+
+          <p class="temperature">
+            <span id="current-temperature"></span>
+            <span id="temperature-unit">°C</span>
+          </p>
+
+          <div class="weather-details">
+            <p>Humidity: <span id="humidity-value"></span></p>
+            <p>Wind: <span id="wind-value"></span></p>
+          </div>
+
+          <button id="save-city-button" class="save-city-button" type="button">
+            Save city
+          </button>
+
+          <fieldset class="unit-controls">
+            <legend>Temperature unit</legend>
+            <button id="celsius-button" type="button" aria-pressed="true">°C</button>
+            <button id="fahrenheit-button" type="button" aria-pressed="false">°F</button>
+          </fieldset>
+        </section>
+
+        <section class="forecast-section" aria-labelledby="forecast-heading">
+          <p class="section-eyebrow">THE NEXT FEW DAYS</p>
+          <h2 id="forecast-heading">5-day forecast</h2>
+          <div id="forecast-grid" class="forecast-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        Weather data provided by
+        <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">
+          Open-Meteo
+        </a>.
+        Nearby place names provided by
+        <a href="https://www.bigdatacloud.com/" target="_blank" rel="noreferrer">
+          BigDataCloud
+        </a>.
+      </p>
+    </footer>
+  </body>
+</html>
